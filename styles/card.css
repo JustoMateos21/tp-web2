@@ -1,0 +1,74 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  gap: 10px;
+   width: 300px;  
+   align-items: center;
+}
+
+.product-card:hover{
+  padding: 25px;
+  transition: 0.6s;
+  cursor: pointer;
+   box-shadow: 0 2px 4px rgba(70, 5, 175, 0.1);
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.product-brand {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.product-description {
+  font-size: 14px;
+  margin: 0;
+  color: #555;
+}
+
+.product-stock {
+  font-size: 14px;
+  margin: 0;
+  color: #1b8a5c;
+}
+
+.product-stock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1b8a5c;
+  border-radius: 5px;
+  height: 20px;
+  width: 60px;
+  padding: 10px;
+}
+
+.product-nostock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d41919;
+  border-radius: 5px;
+  height: 20px;
+   padding: 10px;
+} 
+
+.product-image {
+   height: 150px;
+  width: 150px;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  margin: 0 auto; /* Center the image horizontally */
+  border: 1px solid #ddd; /* Optional border for images */
+  border-radius: 5px; /* Optional border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,63 @@
+<?php require 'templates/partials/header.phtml'; ?>
+
+<section class="dashboard__container">
+  <div><a href="product-form">Add Product</a></div>
+  <div><a  href="category-form">Add Category</a></div>
+
+  <div class="dashboard__products__container">
+    <div class="products__container-header">
+      <p>Id</p>
+      <p>Name</p>
+      <p>Description</p>
+      <p>Brand</p>
+      <p>Price</p>
+      <p>Stock</p>
+      <p>Category</p>
+      <p>Image</p>
+      <p>Edit</p>
+      <p>Delete</p>
+    </div>
+    <?php foreach ($products as $product): ?>
+
+       <div class="product">
+        <p><?= $product->product_id ?></p>
+        <p><?= $product->name ?></p>
+        <p><?= $product->description ?></p>
+        <p><?= $product->brand ?></p>
+        <p>$<?= $product->price ?></p>
+        <p><?= $product->stock_quantity ?></p>
+        <p><?= $product->category_id ?></p>
+        <p> <img  src="data:image/jpeg;base64,<?= base64_encode($product->image_file) ?>" alt=""></p>
+        <a href="product-form&product-id=<?= $product->product_id ?>">Edit</a>
+        <form method="POST" action="delete-product&product-id=<?= $product->product_id ?>">      
+          <button type="submit" class="delete-btn">Delete</button>
+       </form>
+      </div>
+    <?php endforeach; ?>
+
+   </div>
+
+   <div class="dashboard__categories__container">
+     <div class="categories__container-header">
+      <p>Id</p>
+      <p>Name</p>
+      <p>Edit</p>
+      <p>Delete</p>
+    </div>
+     <?php if ($categories): ?>
+      <?php foreach ($categories as $category): ?>
+          <div class="category">
+          <p><?= $category->category_id ?></p>
+          <p><?= $category->category ?></p> 
+          <a href="category-form&category_id=<?= $category->category_id ?>">Edit</a>
+          <a href="delete-category&category_id=<?= $category->category_id ?>" class="delete-btn">Delete</a>
+          </div>
+        <?php endforeach ?>
+      <?php endif ?>
+   </div>
+
+
+</section>
+
+ 
+<?php require 'templates/partials/footer.phtml'; ?>

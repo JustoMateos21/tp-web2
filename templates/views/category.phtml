@@ -1,0 +1,9 @@
+ 
+<div class="category-box">
+    <?php foreach ($categories as $category): ?>
+        <a class="categorie" href="products&category=<?= $category->category_id ?>"><?= $category->category ?></a>
+        <?php endforeach; ?>
+        <a class="categorie" href="products&category=all">All </a>
+</div>
+
+ 

@@ -1,0 +1,23 @@
+<?php require 'templates/partials/header.phtml'; ?>
+
+<div class="product-page-container">
+    <div class="product-col-1">
+    <img class="product-page-image" src="data:image/jpeg;base64,<?= base64_encode($product->image_file) ?>" alt="">
+    <p class="product-page-price">$<?= $product->price ?></p>
+    <p class="product-page-brand"><?= $product->brand ?></p>
+    </div>
+    <div class="product-col-2">
+    <p class="product-page-description"><?= $product->description ?></p>
+    <?php if ($product->stock_quantity > 0): ?>
+        <div class="product-page-stock">
+            <p class="product-page-stock-text">In Stock</p>
+        </div>
+    <?php else: ?>
+        <div class="product-page-no-stock">
+            <p class="product-page-no-stock-text">No Stock</p>
+        </div>
+    <?php endif; ?>
+    </div>
+</div>
+
+<?php require 'templates/partials/footer.phtml'; ?>

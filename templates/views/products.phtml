@@ -1,0 +1,19 @@
+<?php foreach ($products as $product): ?>
+    <div class="product-card">
+<a href=" product&product_id=<?= $product->product_id ?>" class="product-name"><?= $product->name ?></a>
+        <img class="product-image" src="data:image/jpeg;base64,<?= base64_encode($product->image_file) ?>" alt="">
+         <p class="product-name">$<?= $product->price ?></p>
+        <p class="product-brand"><?= $product->brand ?></p>
+        <p class="product-description"><?= $product->description ?></p>
+        <?php if ($product->stock_quantity > 0): ?>
+            <div class="product-stock-container">
+                <p class="product-stock">In Stock</p>
+            </div>
+        <?php else: ?>
+            <div class="product-nostock-container">
+                <p class="product-no-stock">No Stock</p>
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <?php endforeach; ?>
