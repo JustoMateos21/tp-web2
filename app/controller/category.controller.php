@@ -25,7 +25,8 @@ class CategoryController
 
 
     public function createCategory(){
-        AuthHelper::verify();
+        $nameController = 'CATEGORY';
+        AuthHelper::verify($nameController);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category_name = $_POST['category'];
         $result = $this->model->createCategory($category_name);
@@ -36,7 +37,8 @@ class CategoryController
     }
 
     public function updateCategory() {
-        AuthHelper::verify();
+        $nameController = 'CATEGORY';
+        AuthHelper::verify($nameController);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : null;
@@ -49,7 +51,8 @@ class CategoryController
     }
     
     public function deleteCategory() {
-        AuthHelper::verify();
+        $nameController = 'CATEGORY';
+        AuthHelper::verify($nameController);
         $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : null;
     
         if ($category_id) {

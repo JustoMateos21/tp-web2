@@ -14,15 +14,17 @@ class HomeController{
     private $loggedIn;
 
     public function __construct(){
- 
-         $this->productModel = new ProductModel();
+        //AuthHelper::verify();
+        $this->productModel = new ProductModel();
         $this->categoryModel = new CategoryModel();
         $this->view = new HomeView();
  
     }
 
     public function showHome(){
-       
+        $nameController = 'HOME';
+        AuthHelper::verify($nameController);
+
         $products = $this->productModel->getProducts();
         $categories = $this->categoryModel->getCategory();
         $this->view->showHome($products, $categories);

@@ -18,6 +18,8 @@ class ProductController
 
     public function __construct()
     {
+        $nameController = 'PRODUCT';
+        AuthHelper::verify($nameController);
          $this->productModel = new ProductModel();
         $this->productView = new ProductView();
         $this->categoryModel = new CategoryModel;
@@ -47,7 +49,8 @@ public function showProductById() {
 }
 
 public function submitProduct() {
-    AuthHelper::verify();
+    $nameController = 'PRODUCT';
+    AuthHelper::verify($nameController);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          $name = $_POST['name'];
@@ -67,7 +70,8 @@ public function submitProduct() {
 }
 
 public function putProduct() {
-    AuthHelper::verify();
+    $nameController = 'PRODUCT';
+    AuthHelper::verify($nameController);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $product_id = isset($_GET['product-id']) ? $_GET['product-id'] : null;
@@ -92,7 +96,8 @@ public function putProduct() {
 
 
  public function deleteProductById(){
-    AuthHelper::verify();
+    $nameController = 'PRODUCT';
+    AuthHelper::verify($nameController);
 
     $productId = isset($_GET['product-id']) ? $_GET['product-id'] : null;
 

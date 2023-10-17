@@ -55,7 +55,8 @@ class UserController{
 
     
     public function showDashboard(){
-        AuthHelper::verify();
+        $nameController = 'USER';
+        AuthHelper::verify($nameController);
 
         $products = $this->productModel->getProducts();
         $categories= $this->categoryModel->getCategory();
@@ -63,7 +64,8 @@ class UserController{
     }
 
     public function showProductForm( ){
-                AuthHelper::verify();
+        $nameController = 'USER';
+        AuthHelper::verify($nameController);
 
         $product_id = isset($_GET['product-id']) ? $_GET['product-id'] : null;
         $product = $this->productModel->getProductById($product_id);
@@ -78,7 +80,8 @@ class UserController{
     
 
     public function showCategoryForm(){
-                AuthHelper::verify();
+        $nameController = 'USER';
+        AuthHelper::verify($nameController);
 
         $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : null;
         $category = $this->categoryModel->getCategoryById($category_id);
